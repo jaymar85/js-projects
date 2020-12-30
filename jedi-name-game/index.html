@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's your Jedi Name</title>
+</head>
+<body>
+    <form id="first-name-form">
+        <input id="firstName" placeholder="First name" type="text" name="firstName"/>
+        <input type="submit" />
+    </form>
+    <script>
+        const firstName = document.getElementById('first-name-form');
+
+        firstName.addEventListener('submit', getFirstName);
+
+        function getFirstName(e) {
+            e.preventDefault()
+            console.log(e.target.elements.firstName.value)
+            e.target.elements.firstName.value = ''
+        }
+    </script>
+</body>
+</html>
