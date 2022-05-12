@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weight Converter</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            position: relative;
+            margin-top: 70px;
+            background: #2f4f4f;
+            color: #fff;
+        }
+
+        .output {
+            position: absolute;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+            </div>
+        </div>
+        <form>
+            <div class="form-group mb-3">
+                <input id="kg" class="form-control form-control-lg" type="number" min="0" step="0.01" placeholder="Type number here"/>
+            </div>
+        </form>
+        <div id="output">
+            <div class="card bg-primary mb-2 p-2">
+                <div class="card-block">
+                    <h4>Grams:</h4>
+                    <div class="card-text" id="gramsOutput"></div>
+                </div>
+            </div>
+            <div class="card bg-success mb-2 p-2">
+                <div class="card-block">
+                    <h4 class="card-title">Pounds:</h4>
+                    <div class="card-text" id="lbsOutput"></div>
+                </div>
+            </div>
+            <div class="card bg-danger mb-2 p-2">
+                <div class="card-block">
+                    <h4 class="card-title">Ounces:</h4>
+                    <div class="card-text" id="ozOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const kilograms = document.getElementById('kg');
+        let units = document.querySelector('#output');
+        units.style.visibility = 'hidden';
+        kilograms.addEventListener('input', convertUnits);
+
+        function convertUnits(e) {
+            let kgs = e.target.value;
+            units.style.visibility = 'visible';
+
+            document.getElementById('gramsOutput').innerHTML = (kgs * 1000).toFixed(2);
+            document.getElementById('lbsOutput').innerHTML = (kgs * 2.2).toFixed(2);; 
+            document.getElementById('ozOutput').innerHTML = (kgs * 35.274).toFixed(2);;  
+        }
+    </script>
+</body>
+</html>
