@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Background Color Generator</title>
+    <style>
+        body {
+            height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column-reverse;
+            font-size: 36px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <button id="hex-button" type="submit">Click Me</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+        const HEX_CODES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+
+        const hexCode = document.getElementById('output');
+        const hexBtn = document.getElementById('hex-button');
+
+        hexBtn.addEventListener('click', colorChanger)
+
+        function colorChanger() {
+            let hex = '#';
+
+            for(let i = 0; i < 6; i++) {
+                const targetIndex = Math.floor(Math.random() * HEX_CODES.length);
+                console.log(hex +=  HEX_CODES[targetIndex]);
+            }
+            
+            hexCode.textContent = hex;
+            document.body.style.backgroundColor = hex;
+        }
+    </script>
+</body>
+</html>
