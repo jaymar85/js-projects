@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RGB Background-Color Changer</title>
+    <style>
+        body {
+            height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            width: 300px;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        #output {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="rgb-button" type="submit">Click Me</button>
+        <p id="output"></p>
+    </div>
+    <script type="text/javascript">
+        const rgbCode = document.getElementById('output');
+        const rgbBtn = document.getElementById('rgb-button');
+
+        rgbBtn.addEventListener('click', changeColor);
+
+        function colorGenerator() {
+            const [r, g, b] = [...Array(3).keys()].map(() => Math.floor(Math.random() * 255) + 1);
+            return `rgb(${r}, ${g}, ${b})`
+        }
+
+        function changeColor() {
+            const color = colorGenerator();
+            document.body.style.backgroundColor = color;
+            rgbCode.innerHTML = color;
+        }
+    </script>
+</body>
+</html>
